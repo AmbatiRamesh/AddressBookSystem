@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Iterator;
 public class AddressBookMain {
-    private static final ArrayList<ArrayList<String>> address_book = new ArrayList<>();
+    private static final ArrayList<ArrayList<String>> addressbook = new ArrayList<>();
     public void createContacts(ArrayList<String> contact) {
-        AddressBookMain.address_book.add(contact);
-        for (ArrayList<String> i : AddressBookMain.address_book) {
+        AddressBookMain.addressbook.add(contact);
+        for (ArrayList<String> i : AddressBookMain.addressbook) {
             for (String j : i) {
                 System.out.println(j);
             }
@@ -53,9 +53,34 @@ public class AddressBookMain {
         contact.add(email);
         return contact;
     }
+    public int searchExistingContact(String search_pers){
+        int indx = -1;
+        int temp_indx = -1;
+        for (ArrayList <String> i:AddressBookMain.addressbook){
+            temp_indx ++;
+            for (String j:i){
+                if (j.equals(search_pers)){
+                    indx = temp_indx;
+                    break;
+                }
+            }
+        }
+        return indx;
+    }
+    public void editExistingContact(){
+        System.out.println("Enter the name of the person whose details you "
+                + "want to be changed");
+        Scanner sc = new Scanner(System.in);
+        String search_pers = sc.next();
+        int index = searchExistingContact(search_pers);
+        System.out.println("Found the name, Kindly enter new details ");
+        ArrayList <String> contact = enterContactDetails();
+        AddressBookMain.addressbook.set(index, contact);
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program!");
-        AddressBookMain abm = new AddressBookMain();
-        abm.enterContactDetails();
+        AddressBookMain addressbookmain = new AddressBookMain();
+        addressbookmain.enterContactDetails();
+        addressbookmain.editExistingContact();
     }
 }
