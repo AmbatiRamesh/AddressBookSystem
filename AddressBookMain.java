@@ -77,10 +77,19 @@ public class AddressBookMain {
         ArrayList <String> contact = enterContactDetails();
         AddressBookMain.addressbook.set(index, contact);
     }
+    public void deleteExistingContact(){
+        System.out.println("Enter the name of the person whose details you "
+                + "want to be deleted");
+        Scanner sc = new Scanner(System.in);
+        String search_pers = sc.next();
+        int index = searchExistingContact(search_pers);
+        AddressBookMain.addressbook.remove(index);
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program!");
         AddressBookMain addressbookmain = new AddressBookMain();
         addressbookmain.enterContactDetails();
         addressbookmain.editExistingContact();
+        addressbookmain.deleteExistingContact();
     }
 }
