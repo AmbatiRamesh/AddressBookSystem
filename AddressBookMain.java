@@ -107,4 +107,14 @@ public class AddressBookMain {
             System.out.println("Not Found");
         }
     }
+    public  void searchByCity() {
+        System.out.println("Enter city Name:");
+        String city = scanner.next();
+        list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
+    }
+    public void searchByState() {
+        System.out.println("Enter State Name:");
+        String state = scanner.next();
+        list.stream().filter(contacts -> contacts.getState().equalsIgnoreCase(state)).forEach(contacts -> System.out.println(contacts));
+    }
 }
