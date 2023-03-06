@@ -117,4 +117,15 @@ public class AddressBookMain {
         String state = scanner.next();
         list.stream().filter(contacts -> contacts.getState().equalsIgnoreCase(state)).forEach(contacts -> System.out.println(contacts));
     }
+    public void countByCity() {
+        System.out.println("Enter the city Name:");
+        String city = scanner.next();
+        list.stream().filter(contacts -> contacts.getCity().equalsIgnoreCase(city)).forEach(contacts -> System.out.println(contacts));
+    }
+
+    public void countByState() {
+        System.out.println("Enter the State Name:");
+        String state = scanner.next();
+        list.stream().filter(contacts -> contacts.getState().equalsIgnoreCase(state)).forEach(contacts -> System.out.println(contacts));
+    }
 }
