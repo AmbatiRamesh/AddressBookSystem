@@ -1,36 +1,39 @@
 package com.addressbook;
+import java.util.Scanner;
 
 public class AddressBook {
-        public static void main(String[] args) {
+        public static  void main(String[] args) {
             System.out.println("--------Welcome to Address Book Program-------");
+            Scanner scanner = new Scanner(System.in);
             int choice;
+            AddressBookMain addressBookMain = new AddressBookMain();
             do {
-                System.out.println("1. Add New AddressBook \n2. Delete AddressBook" + "\n3. Display AddressBook\n4. Add Contact\n5. Exit");
+                System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Exit");
                 System.out.println("Enter Choice: ");
-                choice = AddressBookRepo.userInput();
+                choice =scanner.nextInt();
 
                 switch (choice) {
                     case 1:
-                        AddressBookRepo.addNewAddressBook();
+                        addressBookMain.addNewContact();
                         break;
                     case 2:
-                        AddressBookRepo.deleteAddressBook();
+                        addressBookMain.editContact();
                         break;
                     case 3:
-                        AddressBookRepo.displayAddressBooks();
+                        addressBookMain.deleteContact();
                         break;
                     case 4:
-                        AddressBookRepo.selectAddressBook();
+                        addressBookMain.displayContact();
                         break;
                     case 5:
                         System.out.println("Thank You for Using Address Book.");
                         break;
                     default:
-                        System.out.println("Please Select between 1 to 6 only.");
+                        System.out.println("Please Select between 1 to 5 only.");
                         break;
                 }
             }
-            while( choice !=5 );
+            while( choice != 5 );
         }
     }
 
