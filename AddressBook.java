@@ -8,7 +8,7 @@ public class AddressBook {
             int choice;
             AddressBookMain addressBookMain = new AddressBookMain();
             do {
-                System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Search by State\n6. Exit");
+                System.out.println("1. Add New Contact\n2. Edit Contact\n3. Delete Contact" + "\n4. Display Contact\n5. Search by State\n6. Sorted List\n7. Exit");
                 System.out.println("Enter Choice: ");
                 choice =scanner.nextInt();
 
@@ -25,7 +25,7 @@ public class AddressBook {
                     case 4:
                         do {
                             System.out.println("---------------------------");
-                            System.out.println("1. Display Contacts\n2.Display by City\n3. Display by State\n4. Exit");
+                            System.out.println("1. Display Contacts\n2.Display and Count by City\n3. Display and Count by State\n4. Exit");
                             System.out.println("Choice :");
                             choice=scanner.nextInt();
                             switch (choice) {
@@ -68,13 +68,15 @@ public class AddressBook {
                             }
                         }while (choice!=3);
                     case 6:
-                        System.out.println("Thank You for Using Address Book.");
+                        addressBookMain.sortedList();
                         break;
+                    case 7:
+                        System.out.println("Thank you for Using Address Book");
                     default:
                         System.out.println("Please Select between 1 to 6 only.");
                         break;
                 }
             }
-            while( choice != 6 );
+            while( choice != 7 );
         }
 }
