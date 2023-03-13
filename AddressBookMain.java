@@ -1,14 +1,51 @@
 package com.addressbook;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBookMain {
     Scanner scanner = new Scanner(System.in);
     Contacts contacts;
     ArrayList<Contacts> list = new ArrayList<>();
+    HashMap<Object, Object> map;
+    public void addNewAddressBook() {
+        System.out.println("Enter AddressBook Name :");
+        String addressbook = scanner.next();
+        if (map.keySet().equals(addressbook)) {
+            System.out.println("Entered AddressBook is already Exist");
+        } else {
+            map.put(addressbook, list);
+        }
+    }
+
+    public void showAddressBook() {
+        for (Object key : map.keySet()) {
+            System.out.println(key);
+        }
+    }
+    public void checkContact(){
+        System.out.println("Enter AddressBook Name :");
+        String adname = scanner.next();
+        for (Object key : map.keySet()) {
+            if (!adname.equalsIgnoreCase((String) key)) {
+                System.out.println("Address Book Not Found-----!!!");
+            }else{
+                System.out.println("Match Found-----!!");
+                System.out.println("Enter First Name :");
+                String firstName = scanner.next();
+                try {
+                    if (!firstName.equalsIgnoreCase(contacts.getFirstname())) {
+                        addNewContact();
+                    }else{
+                        System.out.println("Contact Already Exist");
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("Contact Not Found------!!, Please Add First");
+                    addNewContact();
+
+                }
+            }
+        }
+    }
     public void addNewContact() {
         contacts = new Contacts();
         System.out.println("----------------------------------");

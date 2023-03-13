@@ -66,6 +66,6 @@ public class Contacts {
                 "State :" + state + ',' +
                 "Pin :" + Pin +','+
                 "PhoneNumber :" + phoneNumber +','+
-                "Email :" + email ;
+                "Email :" + email;
     }
 }
